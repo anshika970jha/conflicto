@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conflicto - Peace Forever, Cease Fire</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 0;
+        }
+        
+        /* Home Page Styles */
+        .home-page {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        .home-header {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .home-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .home-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .map-container {
+            padding: 10px;
+            flex-grow: 0;
+        }
+        
+        .world-map {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .home-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .home-heading {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .home-text {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .action-btn {
+            padding: 15px;
+            border: none;
+            background-color: #2c2c2c;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        /* Common Header Style */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .back-btn {
+            color: white;
+            font-size: 24px;
+            margin-right: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        /* Content Page Styles */
+        .content-page {
+            display: none;
+            min-height: 100vh;
+        }
+        
+        .content-title {
+            font-size: 26px;
+            font-weight: bold;
+            padding: 20px;
+        }
+        
+        .menu-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        
+        .menu-option {
+            padding: 30px 20px;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+        }
+        
+        .option-green {
+            background-color: #6b9080;
+        }
+        
+        .option-red {
+            background-color: #9c4a4a;
+        }
+        
+        .option-gold {
+            background-color: #c9a66b;
+        }
+        
+        /* Conflict Timeline Page Styles */
+        .conflicts-page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        /* Action Hub Page Styles */
+        .action-hub-page {
+            display: none;
+            min-height: 100vh;
+        }
+
+         /* Spread Awareness Page Styles */
+         .spread-awareness-page {
+            display: none;
+            min-height: 100vh;
+        }
+        
+        .awareness-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .awareness-intro {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+        
+        .awareness-link {
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s;
+            display: block;
+        }
+        
+        .awareness-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .awareness-box {
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+         /* Stories of Hope Page Styles */
+         .stories-hope-page {
+            display: none;
+            min-height: 100vh;
+        }
+        
+        .stories-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .stories-intro {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+        
+        .story-link {
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s;
+            display: block;
+        }
+        
+        .story-link:hover {
+            transform: translateY(-3px);
+        }
+        
+        .story-box {
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .link-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .link-desc {
+            font-size: 16px;
+            color: #fbf1f1;
+        }
+
+        .white-contianer-content {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sign petition Page Styles */
+        .sign-petition-page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .gray-container {
+            background-color: #424242;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: start;
+        }
+        .white-contianer-content {
+            background-color: white;
+            color: black;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .white-contianer-content p {
+            font-size: 18px;
+            line-height: 40px;
+            font-weight: 600;
+        }
+
+        .white-contianer-content h3 {
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 50px
+        }
+        
+
+        .sign-petition-btn {
+            padding: 20px 30px;
+            width: 340px;
+            background-color: black;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+
+        /* Educational content page */
+        
+        .educational-content {
+            display: flex;
+            overflow-x: hidden;
+            position: relative;
+            display: none;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        .slide {
+            min-width: 100%;
+            padding: 20px;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide-header {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .content-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            height: 70vh;
+            overflow: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .green-card {
+            background-color: #3d7a5d;
+        }
+        
+        .red-card {
+            background-color: #8c3a3a;
+        }
+        
+        .gold-card {
+            background-color: #b39136;
+        }
+        
+        .gray-card {
+            background-color: #424242;
+        }
+        
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .card-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .card-content p {
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        
+        .next-btn {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .next-btn:hover {
+            background-color: white;
+        }
+        
+        .progress-dots {
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background-color: white;
+        }
+
+        /* Palestine Timeline Page Styles */
+        .timeline-page {
+            display: none;
+            min-height: 100vh;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 22px;
+            margin: 0 20px 30px 20px;
+        }
+        
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 20px;
+        }
+        
+        .event {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .event-year {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .event-content {
+            flex-grow: 1;
+            width: 320px;
+            padding: 15px;
+            background-color: #e2e9e1;
+            color: black;
+        }
+        
+        .event-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .event-description {
+            font-size: 14px;
+        }
+        
+        .ottoman-rule {
+            background-color: #6b9080;
+        }
+        
+        .balfour-declaration {
+            background-color: #9c4a4a;
+        }
+        
+        .nakba {
+            background-color: #c9a66b;
+        }
+        
+        .first-intifada {
+            background-color: #6b9080;
+        }
+        
+        .second-intifada {
+            background-color: #6b9080;
+        }
+        
+        .gaza-withdrawal {
+            background-color: #9c4a4a;
+        }
+        
+        .hamas-election {
+            background-color: #c9a66b;
+        }
+        
+        .gaza-war {
+            background-color: #6b9080;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 30px 20px;
+        }
+        
+        .nav-btn {
+            padding: 12px 50px;
+            border: none;
+            border-radius: 8px;
+            background-color: #e2e9e1;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (min-width: 768px)  {
+            .world-map {
+                max-width: 100%;
+                height: 400px;
+                object-fit: cover;
+                object-position: center 40%;
+                transform: scale(0.9);
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Home Page -->
+        <div class="home-page" id="home-page">
+            <div class="home-header">
+                <div class="home-title">Conflicto</div>
+                <div class="home-subtitle">peace forever, cease fire</div>
+            </div>
+            
+            <div class="map-container">
+                <img src="./image.png" alt="World Map" class="world-map">
+            </div>
+            
+            <div class="home-content">
+                <h2 class="home-heading">War Ongoing In The World</h2>
+                <p class="home-text">Stay informed about the ongoing war.</p>
+                <p class="home-text">Stay alert and stand for the people</p>
+                <p class="home-text">suffering from consequences of war.</p>
+                
+                <div class="action-buttons">
+                    <button class="action-btn" id="read-more-btn">READ MORE</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Content Page -->
+        <div class="content-page" id="content-page">
+            <div class="header">
+                <button class="back-btn" id="content-back-btn">←</button>
+                <div class="title">Conflicto</div>
+            </div>
+            
+            <div class="content-title">Content</div>
+            
+            <div class="menu-options">
+                <div class="menu-option option-green" id="conflict-timeline-btn">Conflict timeline</div>
+                <div class="menu-option option-red" id="action-hub-btn">Action Hub</div>
+                <div class="menu-option option-gold" id="educational-content-btn">Educational Content</div>
+            </div>
+        </div>
+        
+        <!-- Conflict Timeline Page -->
+        <div class="conflicts-page" id="conflicts-page">
+            <div class="header">
+                <button class="back-btn" id="conflicts-back-btn">←</button>
+                <div class="title">Conflicto</div>
+            </div>
+            
+            <div class="content-title">Conflict Timeline</div>
+            
+            <div class="menu-options">
+                <div class="menu-option option-green" id="palestine-btn">Palestine - Israel</div>
+                <div class="menu-option option-red" id="sudan-btn">Sudan</div>
+                <div class="menu-option option-gold" id="yemen-btn">Yemen</div>
+                <div class="menu-option option-green" id="ukraine-btn">Ukraine - Russia</div>
+            </div>
+        </div>
+        
+        <!-- Palestine Timeline Page -->
+        <div class="timeline-page" id="timeline-page">
+            <div class="header">
+                <button class="back-btn" id="palestine-back-btn">←</button>
+                <div class="title">Conflicto</div>
+            </div>
+            
+            <div class="subtitle">Timeline of Key Events of Palestine</div>
+            
+            <div class="timeline-container" id="timeline">
+                <!-- Timeline events will be populated by JavaScript -->
+            </div>
+
+       
+            
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prev-btn" disabled>PREV</button>
+                <button class="nav-btn" id="next-btn">NEXT</button>
+            </div>
+        </div>
+
+                <!-- Action Hub Page -->
+                <div class="action-hub-page" id="action-hub-page">
+                    <div class="header">
+                        <button class="back-btn" id="action-hub-back-btn">←</button>
+                        <div class="title">Conflicto</div>
+                    </div>
+                    
+                    <div class="content-title">Action Hub</div>
+                    
+                    <div class="menu-options">
+                        <a href="https://www.icanw.org/donate" target="_blank">
+                            <div class="menu-option option-green" id="donate">Donate</div>
+                        </a>
+                        <div class="menu-option option-red" id="sign-petition-btn">Sign A Petition</div>
+                        <div class="menu-option option-gold" id="spread-awareness-btn">Spread Awareness</div>
+                        <div class="menu-option option-green" id="stories-hope-btn">Stories of Hope</div>
+                    </div>
+                </div>
+
+                <!-- Sign Petition Page -->
+                <div class="sign-petition-page" id="sign-petition-page">
+                    <div class="header">
+                        <button class="back-btn" id="sign-petition-back-btn">←</button>
+                        <div class="title">Conflicto</div>
+                    </div>
+
+                    <div class="content-title">END ALL WARS STAND FOR PEACE</div>
+                    <div class="gray-container">
+                        <div class="white-contianer-content">
+                            <h3>Sign the petition</h3>
+                            <p>war continues to inflict untold suffering across the globe, leaving communities shattered
+                                and countless lives lost. Join the call for an end to all wars-sign the petition and demand
+                                global leaders take concrete actions towars peace.
+                            </p>
+                        </div>
+                        <a href="https://chng.it/LgmjttpxRV" target="_blank"><button class="sign-petition-btn">SIGN NOW</button></a>
+                    </div>
+                </div>
+
+                 <!-- Spread Awareness Page -->
+                 <div class="spread-awareness-page" id="spread-awareness-page">
+                    <div class="header">
+                        <button class="back-btn" id="spread-awareness-back-btn">←</button>
+                        <div class="title">Conflicto</div>
+                    </div>
+
+                    <div class="content-title">SPREAD AWARENESS</div>
+                    <div class="awareness-container">
+                        <p class="awareness-intro">Share these resources to raise awareness about ongoing conflicts and humanitarian crises:</p>
+                        
+                        <a href="https://peacehumanity.org/projects-and-activities/raising-awareness/" class="awareness-link" target="_blank">
+                            <div class="awareness-box option-green">
+                                <span class="link-title">Raising Awareness</span>
+                                <span class="link-desc">Educational content on international crimes, human rights and global peace</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://reliefweb.int/report/iraq/awareness-campaign-war-remnants-and-mine-risks-wasit-targeting-border-areas" class="awareness-link" target="_blank">
+                            <div class="awareness-box option-red">
+                                <span class="link-title">Mine risk awareness</span>
+                                <span class="link-desc">Educating border communities on dangers of war remnants and landmines</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.europarl.europa.eu/doceo/document/E-9-2023-002740_EN.html" class="awareness-link" target="_blank">
+                            <div class="awareness-box option-gold">
+                                <span class="link-title">EU parliament urges release of Ukrainian teens detained</span>
+                                <span class="link-desc">Calls for urgent release of minors, citing torture and unlawfull detention</span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://unitedhelpukraine.org/programs/raising-awareness/" class="awareness-link" target="_blank">
+                            <div class="awareness-box option-green">
+                                <span class="link-title">United help Ukraine</span>
+                                <span class="link-desc">Engaging global communities through events and advocacy to support Ukraine's freedom and democracy</span>
+                            </div>
+                        </a>
+                        
+                        <!-- <a href="https://www.savethechildren.org/" class="awareness-link" target="_blank">
+                            <div class="awareness-box">
+                                <span class="link-title">Save the Children</span>
+                                <span class="link-desc">Supporting children affected by conflict and disaster</span>
+                            </div>
+                        </a> -->
+                    </div>
+                </div>
+
+                <!-- Stories of Hope Page -->
+                <div class="stories-hope-page" id="stories-hope-page">
+                    <div class="header">
+                        <button class="back-btn" id="stories-hope-back-btn">←</button>
+                        <div class="title">Conflicto</div>
+                    </div>
+
+                    <div class="content-title">STORIES OF HOPE</div>
+                    <div class="stories-container">
+                        <p class="stories-intro">Read inspiring stories of resilience, peace-building, and hope from conflict zones:</p>
+                        
+                        <a href="https://strangersguide.com/articles/stories-from-the-war/" class="story-link" target="_blank">
+                            <div class="story-box option-green">
+                                <span class="link-title">Stories from war</span>
+                                <span class="link-desc">Personal accounts revealing the human and complexity 
+                                    of war across nations and generations
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.iwm.org.uk/history" class="story-link" target="_blank">
+                            <div class="story-box option-red">
+                                <span class="link-title">Imperial war museums: war stories</span>
+                                <span class="link-desc">Personal and historical insights into global conflicts
+                                    from WW1 to today
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.wfpusa.org/articles/children-war-stories-dangerous-places-earth/" class="story-link" target="_blank">
+                            <div class="story-box option-gold">
+                                <span class="link-title">Children at war</span>
+                                <span class="link-desc">6 children's stories reveal the devastating impact of
+                                    war and hunger worldwide
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.ochaopt.org/50Stories/" class="story-link" target="_blank">
+                            <div class="story-box option-green">
+                                <span class="link-title">50 stories: Life under occupation</span>
+                                <span class="link-desc">Personal accounts revealing the daily
+                                    hardships faced by Palestinians
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2648927/" class="story-link" target="_blank">
+                            <div class="story-box option-red">
+                                <span class="link-title">Stories from Palastine and Israel</span>
+                                <span class="link-desc">Narratives highlighting the human experiences amid the conflict</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Educational Content Page -->
+                <div class="educational-content" id="educational-carousel">
+                    <div class="header">
+                        <button class="back-btn" id="educational-back-btn">←</button>
+                        <div class="title">Conflicto</div>
+                    </div>
+                    <!-- Slide 1: What is War -->
+                    <div class="slide">
+                        <h1 class="slide-header">Educational Content</h1>
+                        <div class="content-card green-card">
+                            <h2 class="card-title">What is war?</h2>
+                            <div class="card-content">
+                                <p>War is a state of armed conflict between nations or groups, involving violence and often leading to destruction and long-lasting societal impacts. Types of war include interstate wars, civil war, guerrilla war and proxy wars.</p>
+                                
+                                <h3 class="section-title">Causes of War</h3>
+                                <p>War arises from:</p>
+                                <ul>
+                                    <li>Political disputes (control, ideology)</li>
+                                    <li>Economical factors (resource competition)</li>
+                                    <li>Ethnic/religious tensions</li>
+                                    <li>Territorial disputes (borders, land)</li>
+                                    <li>Nationalism (identity conflicts)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="next-btn" data-slide="1">NEXT</button>
+                    </div>
+                    
+                    <!-- Slide 2: Consequences of War -->
+                    <div class="slide">
+                        <h1 class="slide-header">Educational Content</h1>
+                        <div class="content-card red-card">
+                            <h2 class="card-title">Consequences of War</h2>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Humanitarian Impact: loss of life, displacement, trauma, human rights violation.</li>
+                                    <li>Economical Impact: destruction of infrastructure, economical collapse, rebuilding costs.</li>
+                                    <li>Social Impact: displacement of people, cultural loss.</li>
+                                </ul>
+                                
+                                <h3 class="section-title">Role of International Organisation</h3>
+                                <ul>
+                                    <li>United Nations (UN): peacekeeping and conflict resolution.</li>
+                                    <li>International Red Cross (IRC): Aid and humanitarian support</li>
+                                    <li>International Criminal Court(ICC): Prosecution of war crimes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="next-btn" data-slide="2">NEXT</button>
+                    </div>
+                    
+                    <!-- Slide 3: Conflict Resolution and Ethics -->
+                    <div class="slide">
+                        <h1 class="slide-header">Educational Content</h1>
+                        <div class="content-card gold-card">
+                            <h2 class="card-title">Conflict Resolution and Peacebuilding</h2>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Diplomacy: negotiation to prevent war.</li>
+                                    <li>Peace Treaties: official agreements to end hostilities.</li>
+                                    <li>Reconstruction: Rebuilding post-conflict societies.</li>
+                                </ul>
+                                
+                                <h3 class="section-title">Ethics of War</h3>
+                                <ul>
+                                    <li>Just war theory: when is war morally justified?</li>
+                                    <li>Civilian Protection: the ethics of collateral damage.</li>
+                                    <li>Weapons of mass destruction: Ethical concerns around nuclear, chemical, and biological weapons.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <button class="next-btn" data-slide="3">NEXT</button>
+                    </div>
+                    
+                    <!-- Slide 4: Future of War -->
+                    <div class="slide">
+                        <h1 class="slide-header">Educational Content</h1>
+                        <div class="content-card gray-card">
+                            <h2 class="card-title">Future of War</h2>
+                            <div class="card-content">
+                                <ul>
+                                    <li>Cyber warfare: attacks on digital infrastructure</li>
+                                    <li>Drones and AI weapons: the rise of automated combat</li>
+                                    <li>Climate change: Potential for resources-driven conflict.</li>
+                                </ul>
+                                
+                                <h3 class="section-title">Conclusion</h3>
+                                <p>Understanding war's causes and effects is essential for preventing future conflicts. Diplomacy, international cooperation, and respect for human rights are key to achieve lasting peace</p>
+                            </div>
+                        </div>
+                        <button class="next-btn" data-slide="4">NEXT</button>
+                    </div>
+                    
+                    <!-- Progress Dots -->
+                    <div class="progress-dots">
+                        <div class="dot active" data-slide="0"></div>
+                        <div class="dot" data-slide="1"></div>
+                        <div class="dot" data-slide="2"></div>
+                        <div class="dot" data-slide="3"></div>
+                    </div>
+                </div>
+    </div>
+    
+    <script>
+              // For Educational Page start
+              document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('educational-carousel');
+            const slides = carousel.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            const nextButtons = document.querySelectorAll('.next-btn');
+            let currentSlide = 0;
+            
+            // Initialize slides
+            slides.forEach((slide, index) => {
+                if (index !== 0) {
+                    slide.style.transform = `translateX(100%)`;
+                } else {
+                    slide.style.transform = `translateX(0)`;
+                }
+            });
+            
+            // Set up next buttons
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    goToNextSlide();
+                });
+            });
+            
+            // Set up dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            function goToSlide(slideIndex) {
+                if (slideIndex === currentSlide) return;
+                
+                // Move all slides out of view
+                slides.forEach((slide, index) => {
+                    if (index !== slideIndex && index !== currentSlide) {
+                        slide.style.transform = index < slideIndex ? 'translateX(-100%)' : 'translateX(100%)';
+                    }
+                });
+                
+                // Move current slide out
+                slides[currentSlide].style.transform = `translateX(${slideIndex < currentSlide ? '100%' : '-100%'})`;
+                
+                // Update dots
+                dots[currentSlide].classList.remove('active');
+                dots[slideIndex].classList.add('active');
+                
+                // Move new slide in
+                slides[slideIndex].style.transform = 'translateX(0)';
+                
+                // Scroll to top of new slide
+                slides[slideIndex].scrollTop = 0;
+                
+                currentSlide = slideIndex;
+            }
+            
+            function goToNextSlide() {
+                const nextSlide = (currentSlide + 1) % slides.length;
+                goToSlide(nextSlide);
+            }
+        });
+        // For Educational page END
+
+        // Define all conflicts events
+        const conflictsEvents = [
+            [
+                // Palestine Events
+                {
+                    year: "1517-1917",
+                    title: "Ottoman Rule",
+                    description: "Palestine is part of the Ottoman Empire for four centuries",
+                    class: "ottoman-rule"
+                },
+                {
+                    year: "1917",
+                    title: "Balfour Declaration",
+                    description: "Britain supports the establishment of 'national home for Jewish people'",
+                    class: "balfour-declaration"
+                },
+                {
+                    year: "1948",
+                    title: "Nakba Catastrophe",
+                    description: "Over 700,000 Palestinians are displaced.",
+                    class: "nakba"
+                },
+                {
+                    year: "1987-1993",
+                    title: "First Intifada",
+                    description: "Mass Palestinian uprising against Israeli occupation",
+                    class: "first-intifada"
+                },
+                {
+                    year: "2000-2005",
+                    title: "Second Intifada",
+                    description: "More violent uprising following failed peace talks",
+                    class: "second-intifada"
+                },
+                {
+                    year: "2005",
+                    title: "Israeli withdrawal from Gaza",
+                    description: "They maintain control of borders, airspace, and sea.",
+                    class: "gaza-withdrawal"
+                },
+                {
+                    year: "2006",
+                    title: "Hamas wins Election",
+                    description: "Hamas wins parliamentary elections in Gaza; conflict with Fatah ensues",
+                    class: "hamas-election"
+                },
+                {
+                    year: "2023-2024",
+                    title: "Israel-Gaza War",
+                    description: "Largest escalation in decades, massive civilian casualties and displacement in Gaza",
+                    class: "gaza-war"
+                }
+            ],
+            [
+        // Yemen events
+        {
+            year: "1962-1970",
+            title: "North Yemen Civil War",
+            description: "Civil war breaks out between republicans and royalists in North Yemen",
+            class: "north-yemen-civil-war"
+        },
+        {
+            year: "1990",
+            title: "Unification",
+            description: "North and South Yemen unify into one country with Ali Abdullah Saleh as President",
+            class: "yemen-unification"
+        },
+        {
+            year: "2011",
+            title: "Arab Spring",
+            description: "Arab Spring protests force President Ali Abdullah Saleh to step down",
+            class: "arab-spring"
+        },
+        {
+            year: "2014-2015",
+            title: "Houthi Takeover",
+            description: "Houthi rebels seize Sana'a; civil war escalates",
+            class: "houthi-takeover"
+        },
+        {
+            year: "2015-present",
+            title: "Saudi-led Coalition",
+            description: "With ongoing humanitarian crisis and fighting",
+            class: "saudi-coalition"
+        },
+        {
+            year: "2023",
+            title: "Truce Attempt",
+            description: "Fragile peace talks continue amid persistent conflict",
+            class: "truce-attempt"
+        }
+    ],
+    [
+        // Sudan events
+        {
+            year: "1956",
+            title: "Independence",
+            description: "Sudan gains Independence from Britain and Egypt",
+            class: "sudan-independence"
+        },
+        {
+            year: "1989",
+            title: "Military Coup",
+            description: "Omar al Bashir seizes power in a military coup",
+            class: "sudan-military-coup"
+        },
+        {
+            year: "2003",
+            title: "Conflict in Darfur",
+            description: "An armed conflict begins between the Government and rebel groups in Darfur",
+            class: "darfur-conflict"
+        },
+        {
+            year: "2023",
+            title: "Power Struggle",
+            description: "Fighting erupts between Sudan’s army and paramilitary Rapid Support Forces (RSF)",
+            class: "sudan-power-struggle"
+        }
+    ],
+            [{
+        year: "1991",
+        title: "Ukraine declares Independence",
+        description: "after Soviet Union collapses",
+        class: "ukraine-independence"
+    },
+    {
+        year: "2014",
+        title: "Russia Annexes Crimea",
+        description: "war breaks out in eastern Ukraine",
+        class: "russia-crimea-annexation"
+    },
+    {
+        year: "2015",
+        title: "Minsk 2 peace",
+        description: "agreement signed but largely ineffective",
+        class: "minsk-peace"
+    },
+    {
+        year: "2022",
+        title: "Russia invades Ukraine",
+        description: "Full-scale war erupts",
+        class: "russia-invasion"
+    },
+    {
+        year: "2022",
+        title: "Territory",
+        description: "Ukraine retakes territory in the northeast and south",
+        class: "territory-retaken"
+    },
+    {
+        year: "2023",
+        title: "Fighting continues",
+        description: "Russia targets Ukrainian infrastructure",
+        class: "fighting-continues"
+    }]  // Ukraine events (you will add)
+        ];
+    
+        // Display configuration
+        const eventsPerPage = 4;
+        let currentPage = 0;
+        let currentEvents = []; // Will store the selected country's events
+        let totalPages = 0;
+    
+        // DOM elements - Pages
+        const homePage = document.getElementById('home-page');
+        const contentPage = document.getElementById('content-page');
+        const conflictsPage = document.getElementById('conflicts-page');
+        const timelinePage = document.getElementById('timeline-page');
+        const actionHubPage = document.getElementById('action-hub-page');
+        const signPetitionPage = document.getElementById('sign-petition-page');
+        const spreadAwarenessPage = document.getElementById('spread-awareness-page');
+        const storiesHopePage = document.getElementById('stories-hope-page');
+        const educationalPage = document.getElementById("educational-carousel")
+        const subtitle = document.querySelector('.subtitle');
+        // DOM elements - Buttons
+        const readMoreBtn = document.getElementById('read-more-btn');
+        const contentBackBtn = document.getElementById('content-back-btn');
+        const conflictTimelineBtn = document.getElementById('conflict-timeline-btn');
+        const conflictsBackBtn = document.getElementById('conflicts-back-btn');
+        const actionHubBackBtn = document.getElementById('action-hub-back-btn');
+        const actionHubBtn = document.getElementById('action-hub-btn');
+        const signPetitionBtn = document.getElementById('sign-petition-btn');
+        const signPetitionBackBtn = document.getElementById('sign-petition-back-btn');
+        const spreadAwarenessBtn = document.getElementById('spread-awareness-btn');
+        const spreadAwarenessBackBtn = document.getElementById('spread-awareness-back-btn');
+        const storiesHopeBtn = document.getElementById('stories-hope-btn');
+        const storiesHopeBackBtn = document.getElementById('stories-hope-back-btn');
+        const donateBtn = document.getElementById('donate-btn');
+        const donateBackBtn = document.getElementById('donate-back-btn');
+        const educationalContentBtn = document.getElementById('educational-content-btn');
+        const educationalBackBtn = document.getElementById('educational-back-btn');
+        const palestineBtn = document.getElementById('palestine-btn');
+        const yemenBtn = document.getElementById('yemen-btn');
+        const sudanBtn = document.getElementById('sudan-btn');
+        const ukraineBtn = document.getElementById('ukraine-btn');
+    
+        const palestineBackBtn = document.getElementById('palestine-back-btn'); // Common back button
+    
+        const timelineContainer = document.getElementById('timeline');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+    
+        // Home to Content navigation
+        readMoreBtn.addEventListener('click', () => {
+            homePage.style.display = 'none';
+            contentPage.style.display = 'block';
+        });
+    
+        // Content to Home navigation
+        contentBackBtn.addEventListener('click', () => {
+            contentPage.style.display = 'none';
+            homePage.style.display = 'flex';
+        });
+    
+        // Content to Conflicts navigation
+        conflictTimelineBtn.addEventListener('click', () => {
+            contentPage.style.display = 'none';
+            conflictsPage.style.display = 'block';
+        });
+    
+        // Conflicts to Content navigation
+        conflictsBackBtn.addEventListener('click', () => {
+            conflictsPage.style.display = 'none';
+            contentPage.style.display = 'block';
+        });
+
+        //Action Hub btn to Action Hub page
+        actionHubBtn.addEventListener('click', () => {
+            contentPage.style.display = 'none';
+            actionHubPage.style.display = 'block';
+        })
+
+        // Action Hub to Content navigation
+        actionHubBackBtn.addEventListener('click', () => {
+            actionHubPage.style.display = 'none';
+            contentPage.style.display = 'block';
+        })
+
+        // Action Hub to Sign Petition Page
+        signPetitionBtn.addEventListener('click', () => {
+            actionHubPage.style.display = 'none';
+            signPetitionPage.style.display = 'block';
+        })
+        // Sign Petition Page to Action Hub Page
+        signPetitionBackBtn.addEventListener('click', () => {
+            signPetitionPage.style.display = 'none';
+            actionHubPage.style.display = 'block';
+        })
+
+         // Action Hub to Spread Awareness Page
+         spreadAwarenessBtn.addEventListener('click', () => {
+            actionHubPage.style.display = 'none';
+            spreadAwarenessPage.style.display = 'block';
+        })
+        
+        // Spread Awareness Page to Action Hub Page
+        spreadAwarenessBackBtn.addEventListener('click', () => {
+            spreadAwarenessPage.style.display = 'none';
+            actionHubPage.style.display = 'block';
+        })
+
+          // Action Hub to Stories of Hope Page
+          storiesHopeBtn.addEventListener('click', () => {
+            actionHubPage.style.display = 'none';
+            storiesHopePage.style.display = 'block';
+        })
+        
+        // Stories of Hope Page to Action Hub Page
+        storiesHopeBackBtn.addEventListener('click', () => {
+            storiesHopePage.style.display = 'none';
+            actionHubPage.style.display = 'block';
+        })
+
+
+        // educational btn to educational Page
+        educationalContentBtn.addEventListener('click', () => {
+            contentPage.style.display = "none"
+            educationalPage.style.display = "block"
+        })
+        // Educational Page to Content Page
+        educationalBackBtn.addEventListener('click', () => {
+            educationalPage.style.display = "none"
+            contentPage.style.display = "block"
+        })
+        // Generic Back button (timeline -> conflicts)
+        palestineBackBtn.addEventListener('click', () => {
+            timelinePage.style.display = 'none';
+            conflictsPage.style.display = 'block';
+        });
+    
+        // Conflict Buttons click handlers
+        palestineBtn.addEventListener('click', () => {
+            loadConflict(0)
+            subtitle.textContent = 'Timeline of Key Events of Palestine';
+        }); // Palestine
+        yemenBtn.addEventListener('click', () => {
+            loadConflict(1)
+            subtitle.textContent = 'Timeline of Key Events of Yemen';
+        });     // Yemen
+        sudanBtn.addEventListener('click', () => {
+            loadConflict(2)
+            subtitle.textContent = 'Timeline of Key Events of Sudan';
+
+        });     // Sudan
+        ukraineBtn.addEventListener('click', () => {
+            loadConflict(3)
+            subtitle.textContent = 'Timeline of Key Events of Ukraine';
+        });   // Ukraine
+    
+        // Prev and Next buttons
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                displayEvents();
+                updateNavButtons();
+            }
+        });
+    
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                displayEvents();
+                updateNavButtons();
+            }
+        });
+    
+        // Load a specific conflict based on index
+        function loadConflict(index) {
+            currentEvents = conflictsEvents[index];
+            currentPage = 0;
+            totalPages = Math.ceil(currentEvents.length / eventsPerPage);
+    
+            conflictsPage.style.display = 'none';
+            timelinePage.style.display = 'block';
+            displayEvents();
+            updateNavButtons();
+        }
+    
+        // Display current page of events
+        function displayEvents() {
+            timelineContainer.innerHTML = '';
+    
+            const startIndex = currentPage * eventsPerPage;
+            const endIndex = Math.min(startIndex + eventsPerPage, currentEvents.length);
+    
+            for (let i = startIndex; i < endIndex; i++) {
+                const event = currentEvents[i];
+    
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event';
+
+// Determine color class based on event.class
+let colorClass = '';
+if (
+    event.class.includes('north-yemen-civil-war') ||
+    event.class.includes('ottoman-rule') ||
+    event.class.includes('first-intifada') ||
+    event.class.includes('second-intifada') ||
+    event.class.includes('gaza-war') ||
+    event.class.includes('north-yemen-civil-war') ||
+    event.class.includes('saudi-coalition') ||
+    event.class.includes('houthi-takeover')  ||
+    event.class.includes('sudan-independence') ||
+    event.class.includes('sudan-power-struggle')   ||     
+    event.class.includes('ukraine-independence')  ||
+    event.class.includes('russia-invasion') ||
+    event.class.includes('territory-retaken') 
+  
+) {
+    colorClass = 'option-green';
+} else if (
+    event.class.includes('balfour-declaration') ||
+    event.class.includes('gaza-withdrawal') ||
+    event.class.includes('yemen-unification') ||
+    event.class.includes('truce-attempt') ||
+    event.class.includes('sudan-military-coup') ||
+    event.class.includes("russia-crimea-annexation")  ||
+    event.class.includes("fighting-continues") 
+) {
+    colorClass = 'option-red';
+} else if (
+    event.class.includes('nakba') ||
+    event.class.includes('hamas-election') ||
+    event.class.includes('arab-spring') ||
+    event.class.includes('darfur-conflict') ||
+    event.class.includes('minsk-peace') 
+) {
+    colorClass = 'option-gold';
+} else {
+    colorClass = 'option-green'; // default
+}
+
+                eventElement.innerHTML = `
+                    <div class="event-year ${colorClass}">${event.year}</div>
+                    <div class="event-content">
+                        <div class="event-title">${event.title}</div>
+                        <div class="event-description">${event.description}</div>
+                    </div>
+                `;
+                timelineContainer.appendChild(eventElement);
+            }
+        }
+    
+        // Update Prev/Next button states
+        function updateNavButtons() {
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage >= totalPages - 1;
+        }
+    </script>
+    
+</body>
+</html>
